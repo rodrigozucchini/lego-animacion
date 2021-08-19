@@ -1,0 +1,17 @@
+{
+  "name": "lego",
+  "version": "1.0.0",
+  "description": "PÁGINA LEGO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Rodrigo Zucchini - rodrigozucchini1997@gmail.com",
+  "license": "MIT"
+}
