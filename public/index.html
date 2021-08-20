@@ -1,289 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700;100;300&display=swap');
-      :root {
-          --yellow: #ffd602;
-          --red: #d5040a;
-          --blue: #036cb6;
-      }
-    body {
-        font-family: 'Lato', 'sans-serif';
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
-    }
-    .page {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-    }
-    .container {
-      position: absolute;
-      z-index: 1;
-
-      display: grid;
-      grid-template-columns: 55% 45%;
-      grid-template-rows: 25% 50% 15%;
-      grid-template-areas: "nav     aside"
-                           "section aside"
-                           "footer  aside";
-
-        height: 100%;
-        width: 100%;
-    }
-    .navbar {
-        background: var(--yellow);
-        grid-area: nav;
-        display: flex;
-    }
-    .navbar__content {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 0 0 0 80px;
-
-        animation: 2s navbar 0.5s ease-in-out;
-    }
-    @keyframes navbar {
-        0% {
-            transform: translateY(-200px);
-        };
-        100% {
-            transform: translateY(0px);
-        }
-    }
-    .navbar__content img {
-        width: 50px;
-    }
-    .navbar__content ul {
-        display: flex;
-        justify-content: space-evenly;
-        list-style: none;
-        padding: 0;
-        width: 450px;
-    }
-    .navbar__content ul li a {
-        color: var(--red);
-        font-weight: 300;
-        text-decoration: none;
-    }
-    .main-content {
-        display: flex;
-        grid-area: section;
-        flex-direction: column;
-        justify-content: center;
-        padding-left: 60px;
-        line-height: normal;
-
-        animation: main-content 2s linear forwards;
-    }
-    .main-content h1 {
-        font-size: 24px;
-        font-weight: 300;
-        margin: 0 0 -14px 44px;
-    }
-    .main-content h2 {
-        font-size: 32px;
-        font-weight: 700;
-        margin: 0 0 28px 0;
-    }
-    .main-content p {
-        font-size: 24px;
-        font-weight: 100;
-        margin: 0;
-    }
-    @keyframes main-content {
-        0% {
-            transform: translateY(-600px);
-        };
-        100% {
-            transform: translateY(0px);
-        }
-    }
-    .side-content {
-        background: #FFFFFF;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        align-items: center;
-
-        grid-area: aside;
-    }
-    .side-content p {
-        transform: rotate(-90deg);
-        font-size: 24px;
-
-        grid-row: 1 / 2;
-        grid-column: 1 / 2;
-
-        opacity: 0;
-
-        animation-name: side-content-text;
-        animation-duration: 0.5s;
-        animation-delay: 2.5s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-    }
-    @keyframes side-content-text {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-    .side-content img {
-        width: 90%;
-        grid-column: 2 / 6;
-        grid-row: 1 / 2;
-
-        animation: 2s side-content-img 0.5s ease-in-out;
-    }
-    @keyframes side-content-img {
-        0% {
-            transform: translateX(600px);
-        };
-        100% {
-            transform: translateX(0px);
-        }
-    }
-    .side-content div {
-        background: var(--yellow);
-
-        grid-column: 4 / 7;
-        grid-row: 1 / 2;
-       
-        height: 125%;
-    }
-    .footer {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: flex-end;
-
-        background: var(--yellow);
-        border-radius: 0 80px 0 0;
-        transform: translateY(100%);
-
-        animation-name: footer;
-        animation-duration: 0.5s;
-        animation-delay: 2.5s;
-        animation-timing-function: ease-in-out;
-        animation-fill-mode: forwards;
-        
-        grid-area: footer;
-    }
-    @keyframes footer {
-        0% {
-            transform: translateY(100%);
-        };
-        100% {
-            transform: translateY(0px);
-        }
-    }
-    .footer div {
-        background: var(--blue);
-        width: 130px;
-        height: 50%;
-        border-radius: 20px 20px 0 0;
-        display: flex;
-        justify-content: center;
-    }
-    .footer div:hover img {
-        cursor: pointer;
-        transform: translateY(-20px) scale(1.1);
-        transition: transform 0.3s ease-in-out;
-    }
-    .footer div img {
-        width: 160px;
-        position: absolute;
-        bottom: 30px;
-
-        transform: translateY(0px) scale(1);
-        transition: transform 0.5s ease-in-out;
-    }
-    .loader {
-      background: var(--yellow);
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      z-index: 3;
-
-      animation: loader 2s linear forwards;
-    }
-    @keyframes loader {
-      0% {
-        opacity: 1;
-        visibility: visible;
-      }
-      95% {
-        opacity: 1;
-        visibility: visible;
-      }
-      100% {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-    .loader div {
-      background: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      margin: 10px;
-
-      transform: scale(0);
-
-      animation: scaling 2s ease-in-out infinite;
-    }
-    .loader div:nth-child(1) {
-      animation-delay: 0.2s;
-    }
-    .loader div:nth-child(2) {
-      animation-delay: 0.4s;
-    }
-    .loader div:nth-child(3) {
-      animation-delay: 0.6s;
-    }
-    @keyframes scaling {
-      0%, 100% {
-        transform: scale(0.2);
-      }
-      40% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1);
-      }
-    }
-    .hidden {
-        display: none;
-    }
-    .visible {
-        display: grid;
-    }
-    .modal {
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        position: absolute;
-        z-index: 4;
-
-        place-items: center;
-    }
-    .modal__content{
-        background: #ffffff;
-        width: 50%;
-        height: 50%;
-    }
-  </style>
+  <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
   <div class="page">
@@ -302,9 +23,9 @@
       </nav>
 
       <section class="main-content">
-        <h1>Diseña tu</h1></br>
-        <h2>Súper Héroe!</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sequi dignissimos cumque laborum, nemo maxime consectetur obcaecati fuga consequuntur voluptatem similique, pariatur debitis omnis et!</p>
+        <p>Diseña tu</p>
+        <h1>Súper Héroe!</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sequi dignissimos cumque laborum, nemo maxime consectetur obcaecati fuga consequuntur voluptatem similique, pariatur debitis omnis et! Perferendis architecto voluptatem tempora officia!</p>
       </section>
 
       <section class="side-content">
@@ -315,9 +36,9 @@
 
       <section class="footer">
         <div id="button1">
-          <img src="https://i.ibb.co/tKWqw8J/spiderman.png" alt="superman">
+          <img src="https://i.ibb.co/tKWqw8J/spiderman.png" alt="spiderman">
         </div>
-        <div id="button2">
+        <div  id="button2">
           <img src="https://i.ibb.co/Xzsdvgg/robin.png" alt="robin">
         </div>
         <div id="button3">
@@ -333,37 +54,30 @@
     </section>
     <!-- Modal -->
     <section class="modal hidden">
-        <div class="modal__content">
-            <img class="modal__content--close" src="https://img.icons8.com/windows/32/000000/macos-close.png"/>
+      <div class="modal__content">
+        <img class="modal__content--close" src="https://img.icons8.com/windows/32/000000/macos-close.png"/>
+
+        <div class="modal__content--slider">
+          <input type="radio" name="slider-1" id="radio-1" checked>
+          <input type="radio" name="slider-1" id="radio-2">
+          <input type="radio" name="slider-1" id="radio-3">
+
+          <div class="cards">
+            <label for="radio-1" id="card-1" class="card">
+              <img src="https://static.platzi.com/media/public/uploads/spider-man_db8af43d-b692-4986-a385-e645d286e142.png" alt="spiderman">
+            </label>
+            <label for="radio-2" id="card-2" class="card">
+              <img src="https://static.wikia.nocookie.net/sets-de-lego-batman/images/a/a2/Bat009.jpg/revision/latest?cb=20171110205614&path-prefix=es" alt="robin">
+            </label>
+            <label for="radio-3" id="card-3" class="card">
+              <img src="https://www.latercera.com/resizer/SElJLemOzqHVrk-r9fgFGNkGP9U=/800x0/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/DWJAUZHTTFBO7LBFRF2SDO4GMY.jpg" alt="batman">
+            </label> 
+          </div>
+          <button>Lo quiero!</button>
         </div>
+      </div>
     </section>
   </div>
+  <script src="../src/main.js"></script>
 </body>
-<script>
-    const modal = document.querySelector('.modal');
-    const button1 = document.querySelector('#button1');
-    const button2 = document.querySelector('#button2');
-    const button3 = document.querySelector('#button3');
-    const closeButton = document.querySelector('.modal__content--close');
-
-    button1.addEventListener('click', () => {
-        modal.classList.remove('hidden')
-        modal.classList.add('visible')
-    })
-
-    button2.addEventListener('click', () => {
-        modal.classList.remove('hidden')
-        modal.classList.add('visible')
-    })
-
-    button3.addEventListener('click', () => {
-        modal.classList.remove('hidden')
-        modal.classList.add('visible')
-    })
-
-    closeButton.addEventListener('click', () => {
-        modal.classList.add('hidden')
-        modal.classList.remove('visible')
-    })
-</script>
 </html>
